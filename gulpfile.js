@@ -7,7 +7,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const uglify = require("gulp-uglify");
-
+const browserSync = require('browser-sync').create();
 
 
 // Load package.json for banner
@@ -106,7 +106,11 @@ function maincss() {
 function watch() {
     //gulp.watch("node_modules/bootstrap/scss/**/*", css);
     gulp.watch("public/development/scss/*", maincss);
+    gulp.watch("public/development/scss/*", browserSync.reload);
     gulp.watch("public/development/js/*.js", js);
+    gulp.watch("public/development/js/*.js", browserSync.reload);
+
+    
     //gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
     
     //NEW WATCH
