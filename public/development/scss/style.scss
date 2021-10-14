@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    color: black;
+    margin: 0;
+}
+
+$top-bar-height: 75px;
+.top-bar-container {   
+    width: 100%;
+    height: $top-bar-height;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .brand-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+       .brand-logo-img {
+            width: 50px;
+            height: 50px;
+       } 
+       .brand-logo-text {
+            margin: 0 0 0 10px;
+            font-size: 30px;
+       }
+    }
+    .user-box {
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px 0 0;
+        .balance-box {
+            display: flex;
+            justify-content: stretch;
+            
+            .balance-status {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .balance-text {
+                    font-size: 15px;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+            }
+        }
+    }
+}
+
+.left-bar-container {
+    height:  calc( 100vh - $top-bar-height);
+    width: fit-content;
+    background-color: white;
+    .left-bar {
+        height: 100%;
+        //padding: 10px 5px 0 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .top-menu {
+            margin: 10px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .item {
+                width: 150px;
+                margin: 5px 5px;
+                padding: 0 10px;    
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                border: 1px solid black;
+                .item-icon {
+                    width: 25px;
+                    height: 25px;
+                    //color: transparent;
+                }
+                .item-text {
+                    padding: 5px 0 0 5px;
+                    color: black;
+                    font-size: 20px;
+                    margin: 10px 0;
+                }
+            }
+            .item-link {
+                text-decoration: none;
+            }
+        }
+        .bottom-menu {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 20px 0;
+            .item {
+                width: 40px;
+                height: 40px;
+                border: solid 1px black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .item-icon {
+                    width: 30px;
+                    height: 30px;
+                }
+                .item-link {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+

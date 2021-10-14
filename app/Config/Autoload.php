@@ -83,5 +83,8 @@ class Autoload extends AutoloadConfig
      *
      * @var array<int, string>
      */
-    public $files = [];
+    public $files = [
+        //'viewdata' => APPPATH . 'Files/ViewData.json',
+        'viewdata' => APPPATH . 'Files/ViewData.php',
+    ];
 }

@@ -1,5 +1,68 @@
+/* var gulp = require('gulp'),
+    sass = require('gulp-sass')(require('sass')),
+    cleanCSS = require("gulp-clean-css"),
+    autoprefixer = require("gulp-autoprefixer"),
+    plumber = require("gulp-plumber"),
+    rename = require("gulp-rename"),
+    uglify = require("gulp-uglify");
+ 
+gulp.task('mincss', function() {
+    gulp
+        .src([
+            "public/development/scss/*.scss",
+        ])
+        .pipe(plumber())
+        .pipe(sass({
+            outputStyle: "expanded",
+            includePaths: "node_modules",
+        }))
+        .on("error", sass.logError)
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(gulp.dest("public/assets/css"))
+        .pipe(rename({
+            suffix: ".min"
+        }))
+        .pipe(cleanCSS())
+        .pipe(gulp.dest("public/assets/css"));
+        //.pipe(livereload());
+});
+
+gulp.task('js', function() {
+    gulp
+        .src([
+            'public/development/js/*.js',
+            '!public/development/js/*.min.js',
+        ])
+        .pipe(gulp.dest("public/assets/js"))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('public/assets/js'));
+        //.pipe(livereload());
+});
+
+gulp.task('img', function() {
+    gulp
+        .src([
+            'public/development/img/*',
+        ])
+        .pipe(gulp.dest("public/assets/img/"));
+        //.pipe(livereload());
+});
+
+ 
+gulp.task('watch', function() {
+  //livereload.listen();
+  gulp.watch('public/development/scss/*.scsss', mincss);
+  gulp.watch('public/development/js/*.js', js);
+  gulp.watch('public/development/img/*', img);
+}); */
+
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const merge = require("merge-stream");
 const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
@@ -8,6 +71,8 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const uglify = require("gulp-uglify");
 const browserSync = require('browser-sync').create();
+
+
 
 
 // Load package.json for banner
@@ -39,7 +104,6 @@ const browserSync = require('browser-sync').create();
     //return merge(bootstrapJS, bootstrapSCSS, jquery);
    /*  return merge(jquery);
 }  */
-
 
 //function css() {
     //return gulp
@@ -102,32 +166,24 @@ function maincss() {
         .pipe(gulp.dest('public/assets/js'))
 }
 
-// Watch files
-function watch() {
-    //gulp.watch("node_modules/bootstrap/scss/**/*", css);
-    gulp.watch("public/development/scss/*", maincss);
-    gulp.watch("public/development/scss/*", browserSync.reload);
-    gulp.watch("public/development/js/*.js", js);
-    gulp.watch("public/development/js/*.js", browserSync.reload);
-
-    
-    //gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
-    
-    //NEW WATCH
-    
+function images() {
+    return gulp
+        .src([
+            'public/development/img/*',
+        ])
+        .pipe(gulp.dest("public/assets/img/"))
 }
 
 
-//const vendor = gulp.series(gulp.parallel(modules));
-//const build = gulp.series(vendor, gulp.parallel(maincss, js)); //const build = gulp.series(vendor, gulp.parallel(css, maincss, js));
-//const watch = gulp.series(build, gulp.parallel(watchFiles));
+function watch() {
+   
+    gulp.watch("public/development/scss/*", maincss);
+    gulp.watch("public/development/img/*", images);
+    gulp.watch("public/development/js/*.js", js);
 
-//exports.css = css;
+}
+
 exports.maincss = maincss;
 exports.js = js;
 exports.watch = watch;
-//exports.clean = clean;
-/* exports.vendor = vendor;
-exports.build = build;
-exports.watch = watch;
-exports.default = build; */
+exports.images = images;
