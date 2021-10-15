@@ -1,5 +1,4 @@
 body {
-  background-color: black;
   color: black;
   margin: 0;
 }
@@ -7,7 +6,7 @@ body {
 .top-bar-container {
   width: 100%;
   height: 75px;
-  background-color: white;
+  background-color: #e2e2e2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,8 +19,8 @@ body {
   margin: 0 10px;
 }
 .top-bar-container .brand-box .brand-logo-img {
-  width: 50px;
-  height: 50px;
+  width: 156px;
+  height: 40px;
 }
 .top-bar-container .brand-box .brand-logo-text {
   margin: 0 0 0 10px;
@@ -54,69 +53,188 @@ body {
   padding: 0;
 }
 
-.left-bar-container {
-  height: calc(100vh - 75px);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  background-color: white;
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
-.left-bar-container .left-bar {
+.container .left-bar-container {
+  height: calc(100vh - 75px);
+  width: 180px;
+  background-color: #e2e2e2;
+}
+.container .left-bar-container .left-bar {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-.left-bar-container .left-bar .top-menu {
+.container .left-bar-container .left-bar .top-menu {
   margin: 10px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.left-bar-container .left-bar .top-menu .item {
+.container .left-bar-container .left-bar .top-menu .menu-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .group-label {
+  margin: 10px 0 5px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .group-label .label-img {
+  width: 20px;
+  height: 20px;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .group-label .label-text {
+  margin: 0 0 0 5px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .group-label {
+  cursor: pointer;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item {
   width: 150px;
-  margin: 5px 5px;
+  margin: 10px 5px;
+  padding: 0 10px;
+  padding: 0 10px;
   padding: 0 10px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border: 1px solid black;
+  align-items: flex-end;
 }
-.left-bar-container .left-bar .top-menu .item .item-icon {
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item .item-icon {
   width: 25px;
   height: 25px;
+  display: none;
 }
-.left-bar-container .left-bar .top-menu .item .item-text {
-  padding: 5px 0 0 5px;
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item .item-text {
+  padding: 0 0 0 10px;
   color: black;
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 24px;
+  margin: 0px 0;
 }
-.left-bar-container .left-bar .top-menu .item-link {
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item-link {
   text-decoration: none;
 }
-.left-bar-container .left-bar .bottom-menu {
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item:first-child {
+  margin-top: 10px;
+}
+.container .left-bar-container .left-bar .top-menu .menu-group .items .item:last-child {
+  display: none;
+}
+.container .left-bar-container .left-bar .bottom-menu {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 20px 0;
 }
-.left-bar-container .left-bar .bottom-menu .item {
+.container .left-bar-container .left-bar .bottom-menu .item {
   width: 40px;
   height: 40px;
-  border: solid 1px black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.left-bar-container .left-bar .bottom-menu .item .item-icon {
+.container .left-bar-container .left-bar .bottom-menu .item .item-icon {
   width: 30px;
   height: 30px;
 }
-.left-bar-container .left-bar .bottom-menu .item .item-link {
+.container .left-bar-container .left-bar .bottom-menu .item .item-link {
   text-decoration: none;
   color: black;
+}
+.container .left-bar-container .left-bar .bottom-menu .item:first-child {
+  display: none;
+}
+.container .content-container {
+  width: calc(100% - 180px);
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+.container .content-container .header-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .content-container .header-box .header {
+  font-size: 40px;
+  font-weight: bold;
+}
+.container .content-container .header-box .sub-header {
+  font-size: 20px;
+  line-height: 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 25%;
+}
+.container .content-container .table-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.container .content-container .table-box .upper-table {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .content-container .table-box .upper-table .table-filters {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .content-container .table-box .upper-table .table-filters .filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 18px;
+}
+.container .content-container .table-box .upper-table .table-filters .filter .filter-text {
+  font-weight: bold;
+  margin: 0;
+}
+.container .content-container .table-box .upper-table .table-filters .filter .inputs-row {
+  display: flex;
+  flex-direction: row;
+}
+.container .content-container .table-box .upper-table .table-filters .flters-separator {
+  width: 100%;
+}
+.container .content-container .table-box .upper-table .table-buttons {
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container .content-container .table-box .upper-table .table-buttons .button {
+  margin-left: 20px;
+}
+.container .content-container .table-box .upper-table .table-buttons .button p {
+  margin: 0;
 }
