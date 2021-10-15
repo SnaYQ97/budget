@@ -128,5 +128,6 @@ nb-configuration.xml
 # CodeIgniter 4
 #own add
 node_modules
+public/assets
 
 

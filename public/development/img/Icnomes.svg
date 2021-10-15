@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="Icnomes" transform="translate(25.5 25.5) rotate(180)">
+    <g id="Rectangle_10" data-name="Rectangle 10" transform="translate(0.5 0.5)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2">
+      <rect width="25" height="25" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="23" height="23" rx="4" fill="none"/>
+    </g>
+    <path id="Path_1" data-name="Path 1" d="M5.63,13.51l5.733-8.76V22.168" transform="translate(-1.149 -0.517)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_3" data-name="Path 3" d="M11.363,13.51,5.63,4.75V22.168" transform="translate(10.049 -0.517)" fill="none" stroke="#1b1c1d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>
