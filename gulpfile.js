@@ -88,22 +88,50 @@ const browserSync = require('browser-sync').create();
 //].join('');
 
 
-/*  function modules() { */
+function modules() {
     // Bootstrap JS
-    //var bootstrapJS = gulp.src('node_modules/bootstrap/dist/js/*')
-        //.pipe(gulp.dest('app/assets/scripts/bootstrap/js'));
+    var bootstrapJS = gulp.src('node_modules/bootstrap/dist/js/*')
+      .pipe(gulp.dest('public/vendor/bootstrap/js')); // to chane
     // Bootstrap SCSS
-    //var bootstrapSCSS = gulp.src('node_modules/bootstrap/scss/**/*')
-        //.pipe(gulp.dest('assets/styles/bootstrap/scss'))
-    //jQuerry    
-    /* var jquery = gulp.src([
+    var bootstrapSCSS = gulp.src('node_modules/bootstrap/scss/**/*')
+      .pipe(gulp.dest('public/vendor/bootstrap/scss'));
+    // ChartJS
+    //var chartJS = gulp.src('node_modules/chart.js/dist/*.js')
+      //.pipe(gulp.dest('public/vendor/chart.js'));
+    // dataTables
+    
+    var datatables = gulp.src('node_modules/datatables.net/**').pipe(gulp.dest('public/vendor/datatables/datatables.net'));
+    var dt = gulp.src('node_modules/datatables.net-dt/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-dt'));
+    var bs5 = gulp.src('node_modules/datatables.net-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-bs5'));
+    var autofill = gulp.src('node_modules/datatables.net-autofill-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-autofill-bs5'));
+    var bs5_buttons = gulp.src('node_modules/datatables.net-buttons-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-buttons-bs5'));
+    var buttons = gulp.src('node_modules/datatables.net-buttons/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-buttons'));
+    var colreorder = gulp.src('node_modules/datatables.net-colreorder-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-colreorder-bs5'));
+    var datetime = gulp.src('node_modules/datatables.net-datetime/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-datetime'));
+    var responisve = gulp.src('node_modules/datatables.net-responsive-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-responsive-bs5'));
+    var rowgroup = gulp.src('node_modules/datatables.net-rowgroup-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-rowgroup-bs5'));
+    var rowreorder = gulp.src('node_modules/datatables.net-rowreorder-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-rowreorder-bs5'));
+    var searchbuilder = gulp.src('node_modules/datatables.net-searchbuilder-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-searchbuilder-bs5'));
+    var searchpanes = gulp.src('node_modules/datatables.net-searchpanes-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-searchpanes-bs5'));
+    var select = gulp.src('node_modules/datatables.net-select-bs5/**').pipe(gulp.dest('public/vendor/datatables/datatables.net-select-bs5'));
+   
+    //.pipe(gulp.dest('public/vendor/datatables'));
+  
+
+    // Font Awesome
+    // var fontAwesome = gulp.src('node_modules/@fortawesome/**/*')
+      //.pipe(gulp.dest('public/vendor'));
+    // jQuery Easing
+    // var jqueryEasing = gulp.src('node_modules/jquery.easing/*.js')
+    //   .pipe(gulp.dest('public/vendor/jquery-easing'));
+    // jQuery
+    var jquery = gulp.src([
         'node_modules/jquery/dist/*',
         '!node_modules/jquery/dist/core.js'
-        ])
-        .pipe(gulp.dest('public/assets/scripts/jquery/js')) */
-    //return merge(bootstrapJS, bootstrapSCSS, jquery);
-   /*  return merge(jquery);
-}  */
+      ])
+      .pipe(gulp.dest('public/vendor/jquery'));
+    return merge(bootstrapJS, bootstrapSCSS, datatables, dt, bs5, autofill, bs5_buttons, buttons, colreorder, datetime, responisve, rowgroup, rowreorder, searchbuilder, searchpanes, select ,jquery); //,fontAwesome , chartJS, jqueryEasing
+  }
 
 //function css() {
     //return gulp
@@ -145,6 +173,7 @@ function maincss() {
             cascade: false
         }))
         .pipe(gulp.dest("public/assets/css"))
+        .pipe(gulp.dest("public/development/css"))
         .pipe(rename({
             suffix: ".min"
         }))
@@ -187,3 +216,4 @@ exports.maincss = maincss;
 exports.js = js;
 exports.watch = watch;
 exports.images = images;
+exports.modules = modules;

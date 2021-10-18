@@ -5,15 +5,19 @@ $config = [
             'headerPath' => 'templates/head',
             'header' => [
                 'scripts' => [
-                    //'assets/scripts/jquery/js/jquery.min.js',
-                    //'vendor/bootstrap/js/bootstrap.bundle.min.js',
-                    //'vendor/jquery-easing/jquery.easing.min.js',
-                    //'assets/scripts/js/index.js',
+                    'vendor/jquery/jquery.min.js',
+                    'vendor/datatables/datatables.net/js/jquery.dataTables.min.js',
+
+                    'vendor/bootstrap/js/bootstrap.bundle.js',
+                    'vendor/datatables/datatables.net-bs5/js/dataTables.bootstrap5.min.js'
                 ],
                 'defers' => [
-                    //'assets/build/js/sb-admin-2.min.js',
+                    //'assets/js/expensesTable.js',
+                    'assets/js/expensesTable.min.js',
                 ],
                 'styles' => [
+                    //'vendor/datatables/datatables.net-dt/css/jquery.dataTables.min.css',
+                    //'vendor/datatables/datatables.net-bs5/css/dataTables.bootstrap5.min.css',
                     'assets/css/style.min.css',
                 ],
                 'fonts' => [
