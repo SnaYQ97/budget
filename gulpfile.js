@@ -86,15 +86,23 @@ const browserSync = require('browser-sync').create();
 //    ' */\n',
 //    '\n'
 //].join('');
+function fonts() {
+    
+    var fonts = gulp.src('public/development/fonts/**')
+      .pipe(gulp.dest('public/assets/fonts'));
 
+    return merge(fonts);
+  }
 
 function modules() {
     // Bootstrap JS
-    var bootstrapJS = gulp.src('node_modules/bootstrap/dist/js/*')
+    /* var bootstrapJS = gulp.src('node_modules/bootstrap/dist/js/*')
       .pipe(gulp.dest('public/vendor/bootstrap/js')); // to chane
-    // Bootstrap SCSS
-    var bootstrapSCSS = gulp.src('node_modules/bootstrap/scss/**/*')
-      .pipe(gulp.dest('public/vendor/bootstrap/scss'));
+    // Bootstrap SCSS */
+    //var bootstrapSCSS = gulp.src('node_modules/bootstrap/scss/**/*')
+      //.pipe(gulp.dest('public/vendor/bootstrap/scss')); /
+    var bootstrap = gulp.src('node_modules/bootstrap/**')
+      .pipe(gulp.dest('public/vendor/bootstrap/'));
     // ChartJS
     //var chartJS = gulp.src('node_modules/chart.js/dist/*.js')
       //.pipe(gulp.dest('public/vendor/chart.js'));
@@ -130,7 +138,7 @@ function modules() {
         '!node_modules/jquery/dist/core.js'
       ])
       .pipe(gulp.dest('public/vendor/jquery'));
-    return merge(bootstrapJS, bootstrapSCSS, datatables, dt, bs5, autofill, bs5_buttons, buttons, colreorder, datetime, responisve, rowgroup, rowreorder, searchbuilder, searchpanes, select ,jquery); //,fontAwesome , chartJS, jqueryEasing
+    return merge(bootstrap, datatables, dt, bs5, autofill, bs5_buttons, buttons, colreorder, datetime, responisve, rowgroup, rowreorder, searchbuilder, searchpanes, select ,jquery); //,fontAwesome , chartJS, jqueryEasing, bootstrapJS, bootstrapSCSS
   }
 
 //function css() {
@@ -217,3 +225,4 @@ exports.js = js;
 exports.watch = watch;
 exports.images = images;
 exports.modules = modules;
+exports.fonts = fonts;

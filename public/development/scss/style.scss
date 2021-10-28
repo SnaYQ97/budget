@@ -1,32 +1,21 @@
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../../vendor/bootstrap/scss/bootstrap";
+@font-face {
+    font-family: 'Lexend';
+    src: url(assets/fonts/Lexend) format(truetype);
+}
 
-//@import '../../vendor/bootstrap/scss/functions'; //"vandor/bootstrap/scss/functions";
-
-// 2. Include any default variable overrides here
-//for example colors
-
-
-// 3. Include remainder of required Bootstrap stylesheets
-//@import "../../vendor/bootstrap/scss/variables";
-//@import "../../vendor/bootstrap/scss/mixins";
-
-// 4. Include any optional Bootstrap components as you like
-//@import "../../vendor/bootstrap/scss/buttons";
-
-//@import "../../vendor/bootstrap/scss/root";
-//@import "../../vendor/bootstrap/scss/reboot";
-//@import "../../vendor/bootstrap/scss/type";
-//@import "../../vendor/bootstrap/scss/images";
-//@import "../../vendor/bootstrap/scss/containers";
-//@import "../../vendor/bootstrap/scss/grid";
-
-// 5. Add additional custom code here
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    #expensesTable_wrapper {
+        //background-color: blue !important;
+        overflow-x: hidden !important;
+    }
+}
 
 body {
-    //background-color: black;
     color: black;
     margin: 0;
+    font-family: 'Lexend';
+    min-width: 360px;
 }
 
 $top-bar-height: 75px;
@@ -78,17 +67,17 @@ $top-bar-height: 75px;
         }
     }
 }
-.container {
+.main-container {
     $left-bar-width: 180px;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
-    .left-bar-container {
-        height: calc(100vh - $top-bar-height);
+    .menu-container {
+        min-height: calc(100vh - $top-bar-height);
         width: $left-bar-width;
         background-color: rgb(226, 226, 226);
-        .left-bar {
+        .menu-bar {
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -118,45 +107,45 @@ $top-bar-height: 75px;
                             margin: 0 0 0 5px;
                             font-size: 15px;
                             text-transform: uppercase;
-                            font-weight: 500;
+                            font-weight: 400;
                             
                         }
                     }
                     .group-label {
                         cursor: pointer;
                     }
-                    .items {
-                        .item {
-                            width: 150px;
-                            margin: 10px 5px;
-                            padding: 0 10px;    
-                            padding: 0 10px;    
-                            padding: 0 10px;    
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-end;
-                            .item-icon {
-                                width: 25px;
-                                height: 25px;
+                    .items-box {
+                        .items {
+                            .item {
+                                width: 150px;
+                                margin: 10px 5px;
+                                padding: 0 10px;       
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-end;
+                                .item-icon {
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                                .item-text {
+                                    padding: 0 0 0 10px;
+                                    color: black;
+                                    font-size: 20px;
+                                    margin: 0px 0;
+                                }
+                            }
+                            .item-link {
+                                text-decoration: none;
+                            }
+                            .item:first-child {
+                                margin-top: 10px;
+                            }
+                            .item:last-child {
                                 display: none;
                             }
-                            .item-text {
-                                padding: 0 0 0 10px;
-                                color: black;
-                                font-size: 24px;
-                                margin: 0px 0;
-                            }
-                        }
-                        .item-link {
-                            text-decoration: none;
-                        }
-                        .item:first-child {
-                            margin-top: 10px;
-                        }
-                        .item:last-child {
-                            display: none;
-                        }
+                        }  
                     }
+                    
                 }
             }
             .bottom-menu {
@@ -190,17 +179,17 @@ $top-bar-height: 75px;
     
     .content-container {
         width: calc(100% - $left-bar-width);
-        padding: 30px 30px;
+        padding: 30px 30px 0 30px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        //justify-content: space-between;
         background-color: rgb(255, 255, 255);
-        
         .header-box {
             display: flex;
             flex-direction: column;
             width: 100%;
             height: fit-content;
+            margin-bottom: 30px;
             .header {
                 font-size: 40px;
                 font-weight: bold;
@@ -209,58 +198,39 @@ $top-bar-height: 75px;
                 font-size: 20px;
                 line-height: 25px;
                 width: fit-content;
-                max-width: 25%;
+                max-width: 100%;
             }
         }
-        .table-box {
-            width: 100%;
+        #expensesTable_wrapper {
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
-            margin-top: 50px;
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
 
-            .upper-table {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                .table-filters {
-                    display: flex;
-                    flex-direction: column;
-                    width: fit-content;
-                    height: fit-content;
-                    .filter {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: flex-start;
-                        font-size: 18px;
-                        .filter-text {
-                            font-weight: bold;
-                            margin: 0;
-                        }
-                        .inputs-row {
-                            display: flex;
-                            flex-direction: row;
-                        }
-                    }
-                    .flters-separator {
-                        width: 100%;
-                    }
-                }
-                .table-buttons {
-                    display: flex;
-                    flex-direction: row;
-                    width: fit-content;
-
-                    .button {
-                        margin-left: 20px;
-                        p {
-                            margin: 0;
-                        }
-                    }
-                }
-            }
-        } 
+        #expensesTable_wrapper .row:first-child {
+            //order: -1;
+            //background-color: red;
+            margin: 5px 4px 0 0;
+        }
+        #expensesTable_wrapper .row:last-child {
+            //order: -1;
+            //background-color: red;
+            margin: 2px 4px 10px 0;
+        }
+        #expensesTable_wrapper .row:first-child .col-sm-12:first-child {
+            padding: 0;
+        }
+        #expensesTable_wrapper .row:first-child .col-sm-12:last-child {
+            padding: 0;
+        }
+        #expensesTable_wrapper .row:last-child .col-sm-12:first-child {
+            padding: 0;
+        }
+        #expensesTable_wrapper .row:last-child .col-sm-12:last-child {
+            padding: 0;
+        }
     }
 }
+

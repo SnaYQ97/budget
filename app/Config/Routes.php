@@ -33,7 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 #my routes
-$routes->add("expenses", 'ExpensesController');
+$routes->add("expenses", 'ExpensesController::expenses');
+$routes->add("expenses/getExpenses", 'ExpensesController::getExpenses');
+
 
 /*
  * --------------------------------------------------------------------

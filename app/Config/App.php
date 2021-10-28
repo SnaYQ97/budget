@@ -23,7 +23,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/budget/public/';
+    public $baseURL = 'http://localhost/budget/public/'; //public $baseURL = 'http://192.168.137.1/budget/public/'; //when testing on hotspot
+    
 
     /**
      * --------------------------------------------------------------------------
