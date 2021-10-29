@@ -105,39 +105,56 @@ $config = [
                                 'table' => [
                                     'path' => 'table', //link to table path
                                     'data' => [
-                                        "button" => [
-                                            'add' => [
-                                                'path' => "", //path to button
-                                                'data' => [
-                                                    'text' => "add",
-                                                    'modalId' => "",
+                                        "buttons" => [
+                                            'add' => [ //try nameing your buttons for better visavility in viewData
+                                                'settings' => [
+                                                    'visible' => true,
+                                                    'modal' => true,
                                                 ],
+                                                'class' => [
+                                                    "btn","btn-sm","btn-primary"
+                                                ],
+                                                'text' => "Add",
+                                                'target' => "#exampleModal", //modal's id example #exampleModal for modal id="exampleModal"
                                             ],
-                                            'raport' => [
-                                                'path' => "", //path to button
-                                                'data' => [
-                                                    'text' => "add",
+                                            'raport' => [ //try nameing your buttons for better visavility in viewData
+                                                'settings' => [
+                                                    'visible' => false,
+                                                    'modal' => false,
                                                 ],
+                                                'class' => [
+                                                    "btn","btn-sm","btn-primary"
+                                                ],
+                                                'text' => "Raport",
+                                                'target' => null, //modal's id example #exampleModal for modal id="exampleModal"
                                             ],
                                         ],
-                                        "modal" => [
+                                        "modals" => [
                                             'add' => [
-                                                'path' => "",
-                                                'data' => [
-                                                    "inputs" => 
-                                                    [
-                                                        "class" => [
-                                                            "","",""
+                                                'id' => "exampleModal", //same as button midal target without #
+                                                'class' => ['modal','fade'],
+                                                'settings' => [
+                                                    'visible' => true,
+                                                ],
+                                                'header' => [
+                                                    'text' => 'ADD EXPENSE',
+                                                ],
+                                                'body' => [
+                                                    'group' => [
+                                                        "input" => [
+                                                            'label' => [
+                                                                'class' => ['input-group-text'],
+                                                                'id' => ["label-for-first-name"],
+                                                                'name' => "Name",
+                                                            ],
+                                                            'input' => [
+                                                                'class' => ["form-control"],
+                                                                'type' => "text",
+                                                                'id' => ["name"],
+                                                                'aria-describedby' => "label-for-first-name",
+                                                                'placeholder' => "test",
+                                                            ],
                                                         ],
-                                                        "type" => "",
-                                                        'placeholder' => "",
-                                                    ],
-                                                    [
-                                                        "class" => [
-                                                            "","",""
-                                                        ],
-                                                        "type" => "",
-                                                        'placeholder' => "",
                                                     ],
                                                 ],
                                             ],
